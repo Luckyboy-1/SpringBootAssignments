@@ -1,6 +1,5 @@
 package pet.store.entity;
 
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -11,7 +10,8 @@ import lombok.Data;
 @Entity
 @Data
 public class Employee {
-	@Id
+
+    @Id
     @GeneratedValue
     private Long employeeId;
 
@@ -23,4 +23,8 @@ public class Employee {
     private String employeeLastName;
     private String employeePhone;
     private String employeeJobTitle;
+
+    public Long getEmployeeId() {
+        return employeeId;
+    }
 }

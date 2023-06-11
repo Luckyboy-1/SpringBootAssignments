@@ -13,16 +13,21 @@ import lombok.ToString;
 @Entity
 @Data
 public class Customer {
-	 	@Id
-	    @GeneratedValue
-	    private Long customerId;
 
-	    private String customerFirstName;
-	    private String customerLastName;
-	    private String customerEmail;
+    @Id
+    @GeneratedValue
+    private Long customerId;
 
-	    @ManyToMany(mappedBy = "customers")
-	    @EqualsAndHashCode.Exclude
-	    @ToString.Exclude
-	    private Set<PetStore> petStores;
+    private String customerFirstName;
+    private String customerLastName;
+    private String customerEmail;
+
+    @ManyToMany(mappedBy = "customers")
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    private Set<PetStore> petStores;
+
+    public Long getCustomerId() {
+        return customerId;
+    }
 }
