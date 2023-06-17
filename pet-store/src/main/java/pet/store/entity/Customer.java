@@ -1,14 +1,13 @@
 package pet.store.entity;
 
-import java.util.Set;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Data
@@ -23,11 +22,9 @@ public class Customer {
     private String customerEmail;
 
     @ManyToMany(mappedBy = "customers")
-    @EqualsAndHashCode.Exclude
-    @ToString.Exclude
     private Set<PetStore> petStores;
-
-    public Long getCustomerId() {
-        return customerId;
+    
+    public Customer() {
+        this.petStores = new HashSet<>();
     }
 }
